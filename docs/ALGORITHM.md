@@ -33,7 +33,7 @@ Y = 0.299R + 0.587G + 0.114B
 **Sharpness (variance of Laplacian)**
 ```math
 L = I * \begin{bmatrix}0&1&0\\1&-4&1\\0&1&0\end{bmatrix}, \qquad
-S^2 = \operatorname{Var}(L)
+S^2 = \mathrm{Var}(L)
 ```
 
 **Noise estimate (4-neighbour MAD)**
