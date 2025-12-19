@@ -4,6 +4,9 @@ Desktop app (Electron + React + Vite) to find blurry/noisy photos and move them 
 
 ![UI demo](docs/img/app-demo.png)
 
+> macOS: после копирования в `/Applications` снимите quarantine, иначе Gatekeeper может блокировать запуск или дать чёрный экран:  
+> `xattr -dr com.apple.quarantine /Applications/Blurry\\ Cleaner.app`
+
 ## Features
 
 - Variance-of-Laplacian sharpness + contrast/noise heuristics scored 0–100.
