@@ -39,6 +39,8 @@ jobs:
           cache: npm
       - name: Install deps
         run: npm ci
+      - name: Build renderer
+        run: npm run build:renderer
       - name: Build app (DMG)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,6 +63,8 @@ jobs:
           cache: npm
       - name: Install deps
         run: npm ci
+      - name: Build renderer
+        run: npm run build:renderer
       - name: Build app (NSIS)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
