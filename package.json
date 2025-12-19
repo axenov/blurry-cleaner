@@ -45,6 +45,7 @@
     "productName": "Blurry Cleaner",
     "asar": true,
     "asarUnpack": ["dist/**"],
+    "publish": "never",
     "files": [
       "dist/**/*",
       "electron/**/*"
