@@ -1,0 +1,62 @@
+{
+  "name": "blurry-cleaner",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.mjs",
+  "description": "Desktop app to detect blurry/noisy photos and bulk-move them to system trash.",
+  "author": "dmitrii",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:vite\" \"npm:dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron ./electron/main.mjs",
+    "build:renderer": "tsc -b && vite build",
+    "build": "npm run build:renderer && electron-builder",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4",
+    "wait-on": "^8.0.2"
+  },
+  "build": {
+    "appId": "com.dmitrii.blurrycleaner",
+    "productName": "Blurry Cleaner",
+    "asar": true,
+    "asarUnpack": ["dist/**"],
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
