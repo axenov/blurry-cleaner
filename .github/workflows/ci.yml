@@ -25,6 +25,7 @@ jobs:
         run: npm run test:e2e
 
   build-macos:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: macos-14
     needs: test-linux
     steps:
@@ -46,6 +47,7 @@ jobs:
           path: dist/Blurry Cleaner-*.dmg
 
   build-windows:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: windows-latest
     needs: test-linux
     steps:
