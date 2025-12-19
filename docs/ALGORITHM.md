@@ -53,11 +53,11 @@ Q = \mathrm{clip}\bigl(0,\,100,\;0.65\cdot S_n + 0.25\cdot C_n - 0.20\cdot N_n -
 where $S_n,C_n,N_n,B_n$ are normalized to $[0,100]$ using empirical scalers.
 
 **Classification**
-$$
+```math
 \text{keep if } Q \ge \tau;\quad
 \text{maybe if } \tau - 8 \le Q < \tau + 4;\quad
 \text{reject if } Q < \tau - 8
-$$
+```
 Default threshold $\tau = 42$, user-adjustable.
 
 ## Behavioural intuition
