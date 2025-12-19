@@ -3,6 +3,7 @@ name: CI
 on:
   push:
     branches: [master, main]
+    tags: ['v*']
   pull_request:
 
 jobs:
@@ -35,7 +36,9 @@ jobs:
       - name: Install deps
         run: npm ci
       - name: Build app (DMG)
-        run: npx electron-builder --mac dmg --publish=never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx electron-builder --mac dmg --publish=always
       - name: Upload DMG
         uses: actions/upload-artifact@v4
         with:
@@ -54,7 +57,9 @@ jobs:
       - name: Install deps
         run: npm ci
       - name: Build app (NSIS)
-        run: npx electron-builder --win nsis --publish=never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx electron-builder --win nsis --publish=always
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
