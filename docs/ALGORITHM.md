@@ -17,48 +17,48 @@ This document captures the current no-reference image quality pipeline used in t
 
 ## Formal definitions
 
-Let \(I\) be the downsampled grayscale image, \(N\) its number of pixels.
+Let $I$ be the downsampled grayscale image, $N$ its number of pixels.
 
 **Luma conversion**
-\[
+$$
 Y = 0.299R + 0.587G + 0.114B
-\]
+$$
 
 **Contrast (standard deviation)**
-\[
+$$
 \mu = \frac{1}{N}\sum I,\quad
 \sigma = \sqrt{\frac{1}{N}\sum (I-\mu)^2}
-\]
+$$
 
 **Sharpness (variance of Laplacian)**
-\[
+$$
 L = I * \begin{bmatrix}0&1&0\\1&-4&1\\0&1&0\end{bmatrix}, \qquad
 S^2 = \operatorname{Var}(L)
-\]
+$$
 
 **Noise estimate (4-neighbour MAD)**
-\[
+$$
 N_{mad} = \frac{1}{N'} \sum_{p\in\text{inner}} \left| I_p - \tfrac{1}{4}\!\sum_{q\in\mathcal{N}(p)} I_q \right|
-\]
+$$
 
 **Brightness drift**
-\[
+$$
 B = \frac{|\,\mu - 128\,|}{128}
-\]
+$$
 
 **Score fusion (clamped to \([0,100]\))**
-\[
+$$
 Q = \operatorname{clip}\bigl(0,\,100,\;0.65\cdot S_n + 0.25\cdot C_n - 0.20\cdot N_n - 0.05\cdot B_n + 10 \bigr)
-\]
-where \(S_n,C_n,N_n,B_n\) are normalized to \([0,100]\) using empirical scalers.
+$$
+where $S_n,C_n,N_n,B_n$ are normalized to $[0,100]$ using empirical scalers.
 
 **Classification**
-\[
+$$
 \text{keep if } Q \ge \tau;\quad
 \text{maybe if } \tau - 8 \le Q < \tau + 4;\quad
 \text{reject if } Q < \tau - 8
-\]
-Default threshold \(\tau = 42\), user-adjustable.
+$$
+Default threshold $\tau = 42$, user-adjustable.
 
 ## Behavioural intuition
 
