@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+renderer
 *.dmg
 *.blockmap
 playwright-report

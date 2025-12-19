@@ -45,10 +45,10 @@
     "productName": "Blurry Cleaner",
     "asar": true,
     "asarUnpack": [
-      "dist/**"
+      "renderer/**"
     ],
     "files": [
-      "dist/**/*",
+      "renderer/**/*",
       "electron/**/*"
     ],
     "directories": {
