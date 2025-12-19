@@ -48,7 +48,7 @@ B = \frac{|\,\mu - 128\,|}{128}
 
 **Score fusion (clamped to \([0,100]\))**
 ```math
-Q = \operatorname{clip}\bigl(0,\,100,\;0.65\cdot S_n + 0.25\cdot C_n - 0.20\cdot N_n - 0.05\cdot B_n + 10 \bigr)
+Q = \mathrm{clip}\bigl(0,\,100,\;0.65\cdot S_n + 0.25\cdot C_n - 0.20\cdot N_n - 0.05\cdot B_n + 10 \bigr)
 ```
 where $S_n,C_n,N_n,B_n$ are normalized to $[0,100]$ using empirical scalers.
 
