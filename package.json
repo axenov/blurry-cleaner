@@ -1,7 +1,7 @@
 {
   "name": "blurry-cleaner",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "main": "electron/main.mjs",
   "description": "Desktop app to detect blurry/noisy photos and bulk-move them to system trash.",
